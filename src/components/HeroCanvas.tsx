@@ -166,24 +166,28 @@ export default function HeroCanvas({ nextRace = 'Monaco GP', raceDate = 'May 22�
         <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
           <div className="mb-4">
             <span className="inline-block bg-brand-lime text-black text-xs font-black uppercase tracking-widest px-3 py-1">
-              Agencia · México · 16 años de experiencia
+              Macheting
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-tight tracking-tighter text-white mb-4 md:mb-6 max-w-5xl">
-            La agencia que construye tu ecosistema digital y lo convierte en clientes reales.
+            Tu negocio tomó años. Tu equipo de confianza ya está aquí.
           </h1>
 
-          <p className="text-base md:text-lg font-medium text-white/60 mb-8 md:mb-10 max-w-2xl leading-relaxed">
-            Siempre sabrás qué estamos haciendo y por qué. Trabajamos contigo, con comunicación constante, desde el primer día hasta el último resultado.
+          <p className="text-lg md:text-xl font-semibold text-white/75 mb-4 max-w-2xl leading-relaxed">
+            Más que un logotipo, tu negocio es el resultado de un gran esfuerzo. Mereces un equipo que entienda tu historia.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
+          <p className="text-base md:text-lg font-medium text-white/60 mb-8 md:mb-10 max-w-2xl leading-relaxed">
+            En Macheting trabajamos con pequeñas y medianas empresas que buscan crecer con estrategia, creatividad y personas que realmente se involucren en su proyecto. No creemos en las soluciones rápidas ni en promesas imposibles. Creemos en hacer bien las cosas desde el principio.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-4">
             <a
-              href="#contacto"
+              href="#proceso"
               className="group inline-flex items-center gap-3 bg-brand-lime text-black font-black uppercase text-sm tracking-widest px-6 py-4 hover:bg-white transition-colors duration-200"
             >
-              Agenda tu primera asesoría
+              Conoce cómo trabajamos
               <svg
                 className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
                 fill="none"
@@ -195,12 +199,21 @@ export default function HeroCanvas({ nextRace = 'Monaco GP', raceDate = 'May 22�
               </svg>
             </a>
 
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-brand-lime animate-pulse flex-shrink-0" />
-              <p className="text-xs font-semibold text-white/40 leading-snug">
-                Socios de Google · +$500,000 en pauta mensual · +300 marcas satisfechas
-              </p>
-            </div>
+            <a
+              href="#servicios"
+              className="group inline-flex items-center gap-3 border border-white/20 text-white hover:border-brand-lime hover:text-brand-lime font-black uppercase text-sm tracking-widest px-6 py-4 transition-colors duration-200"
+            >
+              Ver nuestros servicios
+              <svg
+                className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={3}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -220,8 +233,8 @@ export default function HeroCanvas({ nextRace = 'Monaco GP', raceDate = 'May 22�
             }`}
           >
             <div className="flex flex-col items-center gap-2">
-              <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-lime">dínamo</span>
-              <span className="text-lg font-black uppercase tracking-widest text-white">Agencia Digital</span>
+              <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-lime">macheting</span>
+              <span className="text-lg font-black uppercase tracking-widest text-white">Agencia de Marketing</span>
             </div>
 
             <div className="relative w-48 h-px bg-white/10 overflow-hidden">

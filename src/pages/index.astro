@@ -2,12 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation";
 import HeroCanvas from "../components/HeroCanvas";
+import TeamPhoto from "../components/TeamPhoto.astro";
 import PainPoints from "../components/PainPoints.astro";
 import TrackTiles from "../components/TrackTiles.astro";
-import PricingPackages from "../components/PricingPackages.astro";
 import MilestonesScroll from "../components/MilestonesScroll";
+import PricingPackages from "../components/PricingPackages.astro";
+import TeamStory from "../components/TeamStory.astro";
 import Partnerships from "../components/Partnerships.astro";
-import FAQ from "../components/FAQ.astro";
 import StoreSection from "../components/StoreSection.astro";
 import Footer from "../components/Footer.astro";
 
@@ -25,83 +26,79 @@ const socialLinks = [
   { name: "X", href: "#" },
 ];
 
-// Service pillars — using existing imagery as abstract backgrounds
+// Servicios — usando la imaginería existente del proyecto
 const serviceTiles = [
   {
-    id: "estrategia",
-    title: "Estrategia",
-    subtitle: "Investigación · Buyer persona · Benchmarking",
+    id: "estrategia-redes",
+    title: "Estrategia y Redes Sociales",
+    subtitle:
+      "Creamos contenido con intención, pensado para conectar con las personas correctas y construir una comunidad alrededor de tu marca.",
     image: "/images/dinamo.jpeg",
     href: "#paquetes",
   },
   {
-    id: "creatividad",
-    title: "Creatividad",
-    subtitle: "Copy · Diseño · Video · Reels · Logotipo",
+    id: "branding",
+    title: "Branding",
+    subtitle:
+      "Diseñamos identidades visuales que ayudan a que tu negocio sea recordado por lo que realmente es.",
     image: "/images/dinamo-2.jpeg",
     href: "#paquetes",
   },
   {
-    id: "tecnologia",
-    title: "Tecnología",
-    subtitle: "Google Ads · Meta Ads · TikTok · SEO",
+    id: "desarrollo-web",
+    title: "Desarrollo Web",
+    subtitle:
+      "Creamos sitios web que transmiten confianza, funcionan correctamente y acompañan el crecimiento de tu empresa.",
     image: "/images/dinamo-5.jpeg",
     href: "#paquetes",
   },
   {
-    id: "seguimiento",
-    title: "Seguimiento",
-    subtitle: "Dashboard · Métricas · Reportes · CRM",
+    id: "produccion-audiovisual",
+    title: "Producción Audiovisual",
+    subtitle:
+      "Fotografía y video que muestran la esencia de tu negocio con naturalidad y profesionalismo.",
     image: "/images/dinamo-4.jpeg",
     href: "#paquetes",
   },
 ];
 
-// Credentials and platforms grid
-const credentials = [
-  { name: "16 años\nde experiencia" },
-  { name: "Socios\nde Google" },
-  { name: "+$500,000\nen pauta mensual" },
-  { name: "+300 marcas\nsatisfechas" },
-  { name: "Google Ads" },
-  { name: "Meta Ads" },
-  { name: "TikTok Ads" },
-  { name: "LinkedIn Ads" },
-  { name: "SEO" },
-  { name: "Claude · ChatGPT\nMidjourney · Runway" },
-];
+// Marcas que ya confiaron en Macheting
+const trustedBrands = [{ name: "Fernando" }, { name: "Lulet" }];
 
 ---
 
 <Layout
-  title="dínamo | Agencia de Publicidad y Marketing Digital · México"
-  description="Construimos tu ecosistema digital completo — Google Ads, Meta Ads, contenido, landing pages y seguimiento de prospectos. 16 años de experiencia, socios de Google, +300 marcas satisfechas."
+  title="Macheting | Agencia de Marketing para Pequeñas y Medianas Empresas"
+  description="Más que un logotipo, tu negocio es el resultado de un gran esfuerzo. En Macheting trabajamos con pequeñas y medianas empresas que buscan crecer con estrategia, creatividad y personas que realmente se involucren en su proyecto."
 >
   <Navigation client:load links={navLinks} socialLinks={socialLinks} />
 
   <main>
-    <!-- Hero: animación de canvas con frames — texto actualizado al nuevo copy -->
+    <!-- Hero: animación de canvas con frames -->
     <HeroCanvas client:load />
 
-    <!-- ¿Te suena alguno de estos? + diagnóstico + IA -->
+    <!-- Scroll (Sección 1): fotografía del equipo trabajando -->
+    <TeamPhoto />
+
+    <!-- Sección 2: No buscamos clientes, buscamos proyectos -->
     <PainPoints />
 
-    <!-- 4 pilares del servicio: Estrategia / Creatividad / Tecnología / Seguimiento -->
+    <!-- Sección 3: Lo que hacemos — 4 servicios -->
     <TrackTiles tiles={serviceTiles} />
 
-    <!-- Paquetes de servicio con precios -->
-    <PricingPackages />
-
-    <!-- Cómo trabajamos: 5 pasos en scroll horizontal -->
+    <!-- Sección 4: Nuestro proceso — 4 pasos en scroll horizontal -->
     <MilestonesScroll client:visible />
 
-    <!-- Credenciales y plataformas -->
-    <Partnerships partners={credentials} />
+    <!-- Sección 5: Nuestros paquetes -->
+    <PricingPackages />
 
-    <!-- FAQ -->
-    <FAQ />
+    <!-- Sección 6: Detrás de cada proyecto hay personas -->
+    <TeamStory />
 
-    <!-- Contacto: formulario con calificación por presupuesto, urgencia y canal -->
+    <!-- Sección 7: Marcas que ya confiaron en nosotros -->
+    <Partnerships partners={trustedBrands} />
+
+    <!-- Sección final (CTA): formulario de contacto -->
     <StoreSection />
   </main>
 

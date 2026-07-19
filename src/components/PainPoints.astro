@@ -1,14 +1,12 @@
 ---
-const painPoints = [
-  'Inviertes en publicidad, pero no sabes con certeza si está funcionando.',
-  'Tu contenido en redes existe, pero no genera interacción real, ni prospectos.',
-  'Tu página web recibe visitas que no se convierten en clientes.',
-  'Ya trabajaste con una agencia: prometieron, no cumplieron.',
-  'Tu equipo de ventas no tiene suficientes prospectos para trabajar.',
-  'Tienes presencia digital pero no una estrategia que conecte todo.',
+const approachPoints = [
+  'Sabemos lo que significa empezar un negocio.',
+  'Sabemos lo que cuesta invertir cuando cada peso cuenta.',
+  'Sabemos lo frustrante que puede ser sentir que nadie entiende realmente lo que quieres construir.',
+  'Antes de hablar de publicaciones, campañas o sitios web, queremos entender tu negocio.',
+  'Conocer tu historia.',
+  'Saber cuáles son tus objetivos.',
 ];
-
-const aiTools = ['Claude', 'ChatGPT', 'Midjourney', 'Runway', 'Adobe Firefly'];
 ---
 
 <section class="bg-white py-20 md:py-28">
@@ -16,15 +14,15 @@ const aiTools = ['Claude', 'ChatGPT', 'Midjourney', 'Runway', 'Adobe Firefly'];
 
     <!-- Header -->
     <div class="mb-12 md:mb-16">
-      <p class="text-xs font-bold uppercase tracking-[0.3em] text-brand-lime mb-3">Reconoce el síntoma</p>
+      <p class="text-xs font-bold uppercase tracking-[0.3em] text-brand-lime mb-3">Confianza antes que venta</p>
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-[#0d1225] leading-none max-w-3xl">
-        ¿Te suena alguno de estos?
+        No buscamos clientes. Buscamos proyectos en los que podamos hacer una diferencia.
       </h2>
     </div>
 
-    <!-- Pain points bento grid -->
+    <!-- Approach bento grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#0d1225]/10">
-      {painPoints.map((point) => (
+      {approachPoints.map((point) => (
         <div class="group bg-white hover:bg-[#0d1225]/5 transition-colors duration-300 p-8 md:p-10 flex gap-5 items-start">
           <span class="flex-shrink-0 w-6 h-6 border border-brand-gold/40 bg-brand-gold/10 flex items-center justify-center mt-0.5">
             <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
@@ -38,65 +36,12 @@ const aiTools = ['Claude', 'ChatGPT', 'Midjourney', 'Runway', 'Adobe Firefly'];
       ))}
     </div>
 
-    <!-- Diagnosis + ecosystem — panels -->
-    <div class="mt-px grid grid-cols-1 lg:grid-cols-3 gap-px bg-[#0d1225]/10">
-
-      <!-- Main diagnosis text -->
-      <div class="bg-white p-8 md:p-12 lg:col-span-2 flex flex-col justify-center">
-        <p class="text-[#0d1225]/45 text-xs font-bold uppercase tracking-[0.3em] mb-5">El diagnóstico</p>
-        <p class="text-lg md:text-xl text-[#0d1225]/80 leading-relaxed mb-6">
-          Si respondiste sí a algún punto, el problema no está necesariamente en tu producto o servicio, ni en tu presupuesto.
-        </p>
-        <p class="text-base text-[#0d1225]/60 leading-relaxed">
-          Seguramente, no has tenido una estrategia que conecte creatividad, campañas, contenido y seguimiento en un solo sistema que trabaje junto. En
-          <span class="text-[#0d1225]/80 font-semibold"> dínamo</span> lo construimos de manera colaborativa — sumamos tu conocimiento de tu producto con nuestro conocimiento en ecosistemas digitales. Juntos creamos la estrategia correcta para tu marca.
-        </p>
-      </div>
-
-      <!-- Ecosystem list -->
-      <div class="bg-[#0d1225]/5 p-8 md:p-10 flex flex-col justify-center border-l border-[#0d1225]/10">
-        <p class="text-[#0d1225]/45 text-xs font-bold uppercase tracking-[0.3em] mb-5">Tu ecosistema digital completo</p>
-        <ul class="flex flex-col gap-2.5">
-          {[
-            'Logotipo e imagen corporativa',
-            'Contenido y reels',
-            'Campañas en todos los canales',
-            'Landing page optimizada',
-            'Seguimiento de prospectos',
-          ].map((item) => (
-            <li class="flex items-center gap-2.5 text-sm text-[#0d1225]/60">
-              <div class="w-1 h-1 rounded-full bg-brand-gold flex-shrink-0"></div>
-              {item}
-            </li>
-          ))}
-          <li class="mt-2 text-brand-lime text-xs uppercase tracking-wider font-semibold">
-            Todo integrado · Todo con propósito
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Strategy first + AI row -->
-    <div class="mt-px grid grid-cols-1 md:grid-cols-2 gap-px bg-[#0d1225]/10">
-      <div class="bg-white p-8 md:p-10 flex flex-col justify-center">
-        <p class="text-xs font-bold uppercase tracking-[0.3em] text-brand-lime mb-4">Investigamos primero, invertimos después</p>
-        <p class="text-[#0d1225]/60 text-sm md:text-base leading-relaxed">
-          Investigamos tu mercado, definimos tu buyer persona y analizamos a tu competencia antes de invertir en campañas — porque la estrategia va primero.
-        </p>
-      </div>
-      <div class="bg-white p-8 md:p-10 flex flex-col justify-center">
-        <p class="text-xs font-bold uppercase tracking-[0.3em] text-brand-lime mb-4">Inteligencia Artificial aplicada</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          {aiTools.map((tool) => (
-            <span class="text-[10px] font-bold uppercase tracking-widest text-[#0d1225]/50 border border-[#0d1225]/15 px-2.5 py-1">
-              {tool}
-            </span>
-          ))}
-        </div>
-        <p class="text-[#0d1225]/50 text-sm leading-relaxed">
-          Optimizamos tiempos de ejecución y tu inversión sin comprometer la calidad.
-        </p>
-      </div>
+    <!-- Closing statement -->
+    <div class="mt-px bg-white p-8 md:p-12 lg:p-16">
+      <p class="text-[#0d1225]/45 text-xs font-bold uppercase tracking-[0.3em] mb-5">Por eso decidimos hacer las cosas diferente</p>
+      <p class="text-lg md:text-xl text-[#0d1225]/80 leading-relaxed max-w-3xl">
+        Y decirte, con total honestidad, qué necesita tu marca y qué puede esperar. Si un servicio no es para ti, también te lo diremos. Porque creemos que una relación de confianza vale mucho más que una venta.
+      </p>
     </div>
 
   </div>

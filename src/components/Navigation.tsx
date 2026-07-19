@@ -146,13 +146,13 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
           <a
             href="/"
             className={`flex items-center gap-2 transition-colors duration-200 ${logoClass}`}
-            aria-label="dínamo Home"
+            aria-label="Macheting Home"
           >
             <div className="w-8 h-8 md:w-10 md:h-10 bg-brand-lime rounded-sm flex items-center justify-center">
-              <span className="text-black font-black text-sm md:text-base tracking-tighter">D</span>
+              <span className="text-black font-black text-sm md:text-base tracking-tighter">M</span>
             </div>
             <span className="hidden sm:block font-bold text-base md:text-lg tracking-wide uppercase">
-              dínamo
+              macheting
             </span>
           </a>
 

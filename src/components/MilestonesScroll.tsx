@@ -23,79 +23,48 @@ interface PanelData {
 
 const PANELS: PanelData[] = [
   {
-    tag: '01 — TE ESCUCHAMOS DE VERDAD',
+    tag: '01 — ESCUCHAMOS',
     year: '',
-    title: 'LA\nESCUCHA',
-    subtitle: 'Sin fórmulas genéricas · Sin guiones de venta',
+    title: 'ESCUCHAMOS',
+    subtitle: 'Cada negocio tiene una historia diferente',
     description:
-      'Antes de proponer cualquier cosa, entendemos tu negocio, tu competencia y tus objetivos reales. Juntos definimos qué significa éxito para tu marca.',
+      'Por eso nuestra primera tarea siempre es entender la tuya.',
     image: '/images/dinamo-2.jpeg',
     mobileImage: '/images/dinamo-2-mobile.jpeg',
-    stats: [
-      { label: 'Años de experiencia', value: 16, suffix: '' },
-      { label: 'Marcas satisfechas', value: 300, suffix: '+' },
-      { label: 'Países', value: 5, suffix: '+' },
-    ],
+    stats: [],
   },
   {
-    tag: '02 — ANALIZAMOS ANTES DE PROPONER',
+    tag: '02 — PLANEAMOS',
     year: '',
-    title: 'EL\nANÁLISIS',
-    subtitle: 'Mercado · Competencia · Data disponible',
+    title: 'PLANEAMOS',
+    subtitle: 'Analizamos tu marca y definimos prioridades',
     description:
-      'Investigamos tu mercado, estudiamos a tu competencia y revisamos la data disponible. Solo cuando entendemos el panorama completo diseñamos la estrategia.',
+      'Construimos una estrategia que tenga sentido para el momento en el que se encuentra tu negocio.',
     image: '/images/dinamo-4.jpeg',
     mobileImage: '/images/dinamo-4-mobile.jpeg',
-    stats: [
-      { label: 'Canales analizados', value: 6, suffix: '' },
-      { label: 'Herramientas IA', value: 5, suffix: '+' },
-      { label: 'Semanas de análisis', value: 2, suffix: '' },
-    ],
+    stats: [],
   },
   {
-    tag: '03 — LA CREATIVIDAD TIENE CRITERIO',
+    tag: '03 — CREAMOS',
     year: '',
-    title: 'CRITERIO\nCREATIVO',
-    subtitle: 'Revisión interna antes de llegar a ti',
+    title: 'CREAMOS',
+    subtitle: 'Diseño, contenido, fotografía, video y desarrollo',
     description:
-      'Cada propuesta — copy, diseño, campaña o contenido — pasa por revisión detallada antes de llegar a ti. Si no cumple el estándar, no sale. Tú siempre ves trabajo terminado.',
+      'Todo trabajando como un solo equipo.',
     image: '/images/dinamo-5.jpeg',
     mobileImage: '/images/dinamo-5-mobile.jpeg',
-    stats: [
-      { label: 'Revisión interna', value: 100, suffix: '%' },
-      { label: 'Herramientas creativas', value: 10, suffix: '+' },
-      { label: 'Formatos de contenido', value: 8, suffix: '+' },
-    ],
+    stats: [],
   },
   {
-    tag: '04 — EJECUTAMOS CON PRECISIÓN',
+    tag: '04 — ACOMPAÑAMOS',
     year: '',
-    title: 'EJECUCIÓN\nPRECISA',
-    subtitle: 'Nada se activa sin tu aprobación',
+    title: 'ACOMPAÑAMOS',
+    subtitle: 'No desaparecemos después de entregar un proyecto',
     description:
-      'Copy, diseños, segmentación, creatividades — todo pasa por ti primero. En campañas, la optimización empieza desde el día siguiente al arranque.',
+      'Nos interesa que tu marca siga creciendo y que cada decisión tenga un propósito.',
     image: '/images/dinamo-6.jpeg',
     mobileImage: '/images/dinamo-6-mobile.jpeg',
-    stats: [
-      { label: 'Pauta mensual ($K)', value: 500, suffix: '+' },
-      { label: 'Días de seguimiento', value: 30, suffix: '' },
-      { label: 'Respuesta (horas)', value: 24, suffix: '' },
-    ],
-  },
-  {
-    tag: '05 — EVOLUCIONAMOS CONTIGO',
-    year: '',
-    title: 'SIEMPRE\nADELANTE',
-    subtitle: 'Métricas · Decisiones · Siguiente ciclo',
-    description:
-      'Nos reunimos cada mes para revisar resultados y definir el plan del siguiente ciclo. dínamo adopta nuevas herramientas antes de que se vuelvan estándar — tu estrategia siempre tiene ventaja.',
-    image: '/images/dinamo.jpeg',
-    mobileImage: '/images/dinamo-mobile.jpeg',
-    stats: [
-      { label: 'Reportes al año', value: 12, suffix: '' },
-      { label: 'Optimizaciones/semana', value: 4, suffix: '' },
-      { label: 'Ciclos de mejora', value: 52, suffix: '' },
-    ],
+    stats: [],
   },
 ];
 
@@ -335,7 +304,20 @@ export default function MilestonesScroll() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="proceso" className="relative bg-brand-dark overflow-hidden">
+    <>
+      <div id="proceso" className="bg-brand-dark pt-20 md:pt-28 pb-12 md:pb-16 px-6 md:px-12 lg:px-20">
+        <div className="max-w-[1400px] mx-auto">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-lime mb-3">Proceso</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-white leading-none max-w-3xl mb-6">
+            Nuestro proceso
+          </h2>
+          <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-2xl">
+            No creemos en las fórmulas mágicas. Creemos en conocer a las personas antes de tomar decisiones.
+          </p>
+        </div>
+      </div>
+
+    <section ref={sectionRef} className="relative bg-brand-dark overflow-hidden">
 
       {/* Horizontal track */}
       <div ref={trackRef} className="flex flex-col md:flex-row">
@@ -441,7 +423,7 @@ export default function MilestonesScroll() {
               {/* Bottom: stats */}
               <div
                 ref={(el) => { statRowRefs.current[i] = el; }}
-                className="flex gap-8 md:gap-10 lg:gap-14 pt-6 border-t border-white/10"
+                className={`flex gap-8 md:gap-10 lg:gap-14 ${panel.stats.length > 0 ? 'pt-6 border-t border-white/10' : ''}`}
               >
                 {panel.stats.map((stat, si) => (
                   <div key={si} className="flex flex-col gap-1.5">
@@ -493,5 +475,6 @@ export default function MilestonesScroll() {
       </div>
 
     </section>
+    </>
   );
 }
