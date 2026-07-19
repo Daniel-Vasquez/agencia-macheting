@@ -292,5 +292,3 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
     </>
   );
 }
-
-export { IconInstagram, IconYouTube, IconTikTok, IconTwitch, IconX };

@@ -13,12 +13,7 @@ function getFrameUrl(index: number): string {
   return `/hero-video/fotograma_${String(index + 1).padStart(4, '0')}.jpg`;
 }
 
-interface Props {
-  nextRace?: string;
-  raceDate?: string;
-}
-
-export default function HeroCanvas({ nextRace = 'Monaco GP', raceDate = 'May 22–25' }: Props) {
+export default function HeroCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
