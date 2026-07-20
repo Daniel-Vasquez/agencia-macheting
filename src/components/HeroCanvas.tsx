@@ -5,8 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const TOTAL_FRAMES = 192;
-// Container height = SCROLL_MULTIPLIER × 100vh.
-// Actual scroll range = (SCROLL_MULTIPLIER - 1) × 100vh ≈ 400vh for 192 frames.
 const SCROLL_MULTIPLIER = 5;
 
 function getFrameUrl(index: number): string {
@@ -24,7 +22,6 @@ export default function HeroCanvas() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [loadingVisible, setLoadingVisible] = useState(true);
 
-  // object-fit: cover equivalent on canvas
   const drawFrame = useCallback((index: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -53,7 +50,6 @@ export default function HeroCanvas() {
     ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
   }, []);
 
-  // Preload all frames in parallel, track progress
   useEffect(() => {
     let isMounted = true;
     let timer: ReturnType<typeof setTimeout>;
@@ -93,7 +89,6 @@ export default function HeroCanvas() {
     };
   }, []);
 
-  // Sync canvas buffer size to viewport; redraw current frame on resize
   useEffect(() => {
     const resizeCanvas = () => {
       const canvas = canvasRef.current;
@@ -108,7 +103,6 @@ export default function HeroCanvas() {
     return () => window.removeEventListener('resize', resizeCanvas);
   }, [drawFrame]);
 
-  // Wire ScrollTrigger once all frames are ready
   useEffect(() => {
     if (!isLoaded || !containerRef.current) return;
 
@@ -145,19 +139,15 @@ export default function HeroCanvas() {
       id="home"
       style={{ height: `${SCROLL_MULTIPLIER * 100}vh` }}
     >
-      {/* Sticky panel — stays pinned for the entire scroll range */}
       <div className="sticky top-0 w-full h-screen overflow-hidden">
 
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
-        {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20 pointer-events-none" />
 
-        {/* Lime accent bar */}
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-brand-lime z-10" />
 
-        {/* Hero content */}
         <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 px-6 max-w-[1400px] mx-auto">
           <div className="mb-4">
             <span className="inline-block bg-brand-lime text-black text-xs font-black uppercase tracking-widest px-3 py-1">
@@ -212,7 +202,6 @@ export default function HeroCanvas() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 right-8 md:right-12 lg:right-20 z-10 hidden md:flex flex-col items-center gap-2">
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/40 rotate-90 origin-center translate-x-4">
             Scroll
@@ -220,7 +209,6 @@ export default function HeroCanvas() {
           <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent mt-6" />
         </div>
 
-        {/* Loading screen — fades out when all frames are ready */}
         {loadingVisible && (
           <div
             className={`absolute inset-0 z-50 bg-[#0d1225] flex flex-col items-center justify-center gap-6 transition-opacity duration-500 ${

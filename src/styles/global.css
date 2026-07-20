@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===================================================
-   SCROLLBAR — dark theme default
-   =================================================== */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -19,21 +16,15 @@
   background: #555;
 }
 
-/* ===================================================
-   LIGHT MODE OVERRIDES
-   =================================================== */
-
 html.light ::-webkit-scrollbar-track { background: #f5f7fa; }
 html.light ::-webkit-scrollbar-thumb { background: #c5d0e4; border-radius: 3px; }
 html.light ::-webkit-scrollbar-thumb:hover { background: #9ba8c0; }
 
-/* Body */
 html.light body {
   background-color: #f5f7fa !important;
   color: #0d1225 !important;
 }
 
-/* ── PricingPackages (#paquetes) ── */
 html.light #paquetes {
   background-color: #eef1f8 !important;
 }
@@ -48,12 +39,10 @@ html.light #paquetes .text-white\/60          { color: rgba(13,18,37,.60) !impor
 html.light #paquetes [class*="border-white"]  { border-color: rgba(13,18,37,.14) !important; }
 html.light #paquetes [class*="bg-white\/"]    { background-color: rgba(13,18,37,.04) !important; }
 html.light #paquetes .bg-\[\#0d1225\]         { background-color: #e5eaf3 !important; }
-/* Preserve hover accent colors */
 html.light #paquetes .hover\:text-brand-lime:hover    { color: #f0503d !important; }
 html.light #paquetes .hover\:border-brand-lime:hover  { border-color: #f0503d !important; }
 html.light #paquetes .hover\:bg-white:hover           { background-color: #0d1225 !important; color: #fff !important; }
 
-/* ── FAQ (#faq) ── */
 html.light #faq {
   background-color: #eef1f8 !important;
 }
@@ -68,7 +57,6 @@ html.light #faq [class*="divide-white"] > :not([hidden]) ~ :not([hidden]) {
   border-color: rgba(13,18,37,.12) !important;
 }
 
-/* ── Footer ── */
 html.light footer {
   background-color: #e8edf5 !important;
   border-top-color: rgba(13,18,37,.10) !important;
@@ -79,7 +67,6 @@ html.light footer .text-white\/30          { color: rgba(13,18,37,.30) !importan
 html.light footer .text-white\/40          { color: rgba(13,18,37,.40) !important; }
 html.light footer .text-white\/50          { color: rgba(13,18,37,.50) !important; }
 html.light footer [class*="border-white"]  { border-color: rgba(13,18,37,.08) !important; }
-/* Preserve hover accent colors */
 html.light footer .hover\:text-brand-lime:hover  { color: #f0503d !important; }
 html.light footer .hover\:text-white:hover       { color: rgba(13,18,37,.80) !important; }
 html.light footer .hover\:text-white\/50:hover   { color: rgba(13,18,37,.50) !important; }

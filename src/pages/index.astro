@@ -26,7 +26,6 @@ const socialLinks = [
   { name: "X", href: "#" },
 ];
 
-// Servicios — usando la imaginería existente del proyecto
 const serviceTiles = [
   {
     id: "estrategia-redes",
@@ -62,7 +61,6 @@ const serviceTiles = [
   },
 ];
 
-// Marcas que ya confiaron en Macheting
 const trustedBrands = [{ name: "Fernando" }, { name: "Lulet" }];
 
 ---
@@ -74,31 +72,22 @@ const trustedBrands = [{ name: "Fernando" }, { name: "Lulet" }];
   <Navigation client:load links={navLinks} socialLinks={socialLinks} />
 
   <main>
-    <!-- Hero: animación de canvas con frames -->
     <HeroCanvas client:load />
 
-    <!-- Scroll (Sección 1): fotografía del equipo trabajando -->
     <TeamPhoto />
 
-    <!-- Sección 2: No buscamos clientes, buscamos proyectos -->
     <PainPoints />
 
-    <!-- Sección 3: Lo que hacemos — 4 servicios -->
     <TrackTiles tiles={serviceTiles} />
 
-    <!-- Sección 4: Nuestro proceso — 4 pasos en scroll horizontal -->
     <MilestonesScroll client:visible />
 
-    <!-- Sección 5: Nuestros paquetes -->
     <PricingPackages />
 
-    <!-- Sección 6: Detrás de cada proyecto hay personas -->
     <TeamStory />
 
-    <!-- Sección 7: Marcas que ya confiaron en nosotros -->
     <Partnerships partners={trustedBrands} />
 
-    <!-- Sección final (CTA): formulario de contacto -->
     <StoreSection />
   </main>
 

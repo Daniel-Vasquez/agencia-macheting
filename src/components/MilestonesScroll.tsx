@@ -96,7 +96,6 @@ export default function MilestonesScroll() {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      // ─── DESKTOP: pin + horizontal scroll ───────────────────────────
       mm.add('(min-width: 768px)', () => {
         const section = sectionRef.current!;
         const track = trackRef.current!;
@@ -134,7 +133,6 @@ export default function MilestonesScroll() {
             toggleActions: 'play none none reverse' as const,
           };
 
-          // Parallax on background image
           const imgWrap = imgWrapRefs.current[i];
           if (imgWrap) {
             gsap.fromTo(
@@ -154,7 +152,6 @@ export default function MilestonesScroll() {
             );
           }
 
-          // Tag slide-in
           const tagEl = tagRefs.current[i];
           if (tagEl) {
             gsap.fromTo(
@@ -170,7 +167,6 @@ export default function MilestonesScroll() {
             );
           }
 
-          // Title reveal (clip + y)
           const titleEl = titleRefs.current[i];
           if (titleEl) {
             gsap.fromTo(
@@ -187,7 +183,6 @@ export default function MilestonesScroll() {
             );
           }
 
-          // Accent line scale
           const lineEl = lineRefs.current[i];
           if (lineEl) {
             gsap.fromTo(
@@ -203,7 +198,6 @@ export default function MilestonesScroll() {
             );
           }
 
-          // Description fade-up
           const descEl = descRefs.current[i];
           if (descEl) {
             gsap.fromTo(
@@ -220,7 +214,6 @@ export default function MilestonesScroll() {
             );
           }
 
-          // Stats row fade-up
           const statRow = statRowRefs.current[i];
           if (statRow) {
             gsap.fromTo(
@@ -237,7 +230,6 @@ export default function MilestonesScroll() {
             );
           }
 
-          // Stat counters
           panelData.stats.forEach((stat, si) => {
             const numEl = statNumRefs.current[i]?.[si];
             if (!numEl) return;
@@ -260,7 +252,6 @@ export default function MilestonesScroll() {
         };
       });
 
-      // ─── MOBILE: stacked vertical panels ────────────────────────────
       mm.add('(max-width: 767px)', () => {
         PANELS.forEach((panelData, i) => {
           const panel = panelRefs.current[i];
@@ -318,7 +309,6 @@ export default function MilestonesScroll() {
     <>
     <section ref={sectionRef} className="relative bg-brand-dark overflow-hidden">
 
-      {/* Horizontal track */}
       <div ref={trackRef} className="flex flex-col md:flex-row">
         {PANELS.map((panel, i) => (
           <div
@@ -327,7 +317,6 @@ export default function MilestonesScroll() {
             className="relative w-screen h-screen flex-shrink-0 overflow-hidden"
           >
 
-            {/* Background image with parallax wrapper */}
             <div className="absolute inset-0 overflow-hidden">
               <div
                 ref={(el) => { imgWrapRefs.current[i] = el; }}
@@ -346,12 +335,10 @@ export default function MilestonesScroll() {
                   />
                 </picture>
               </div>
-              {/* Gradient overlays */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/20 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/30 to-transparent pointer-events-none" />
             </div>
 
-            {/* Year watermark */}
             {panel.year && (
               <div
                 aria-hidden="true"
@@ -362,7 +349,6 @@ export default function MilestonesScroll() {
               </div>
             )}
 
-            {/* Panel index watermark */}
             <div
               aria-hidden="true"
               className="absolute right-8 bottom-16 font-black leading-none select-none pointer-events-none hidden lg:block"
@@ -371,10 +357,8 @@ export default function MilestonesScroll() {
               {String(i + 1).padStart(2, '0')}
             </div>
 
-            {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-between px-8 md:px-12 lg:px-16 xl:px-20 pt-24 md:pt-28 pb-10">
 
-              {/* Top: tag */}
               <div>
                 <span
                   ref={(el) => { tagRefs.current[i] = el; }}
@@ -384,7 +368,6 @@ export default function MilestonesScroll() {
                 </span>
               </div>
 
-              {/* Middle: title + text */}
               <div className="flex-1 flex items-center">
                 <div className="max-w-lg">
                   <div
@@ -397,7 +380,6 @@ export default function MilestonesScroll() {
                     </h2>
                   </div>
 
-                  {/* Lime accent line */}
                   <div
                     ref={(el) => { lineRefs.current[i] = el; }}
                     className="h-[2px] bg-brand-gold mt-6 origin-left"
@@ -418,7 +400,6 @@ export default function MilestonesScroll() {
                 </div>
               </div>
 
-              {/* Bottom: stats */}
               <div
                 ref={(el) => { statRowRefs.current[i] = el; }}
                 className={`flex gap-8 md:gap-10 lg:gap-14 ${panel.stats.length > 0 ? 'pt-6 border-t border-white/10' : ''}`}
@@ -457,7 +438,6 @@ export default function MilestonesScroll() {
         ))}
       </div>
 
-      {/* Progress indicator — desktop only */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 hidden md:flex items-center gap-2">
         {PANELS.map((_, i) => (
           <div

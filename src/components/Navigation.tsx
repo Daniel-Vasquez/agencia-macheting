@@ -109,7 +109,6 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
     }
   };
 
-  // When the mobile menu is open, keep nav dark (image overlay behind it)
   const showDarkNav = !isLight || isOpen || !scrolled;
 
   const headerBg = scrolled || isOpen
@@ -142,7 +141,6 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}
       >
         <nav className="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 md:h-20 flex items-center justify-between">
-          {/* Logo */}
           <a
             href="/"
             className={`flex items-center gap-2 transition-colors duration-200 ${logoClass}`}
@@ -156,7 +154,6 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
             </span>
           </a>
 
-          {/* Desktop Nav Links */}
           <ul className="hidden lg:flex items-center gap-8">
             {links.map((link) => (
               <li key={link.label}>
@@ -172,9 +169,7 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
             ))}
           </ul>
 
-          {/* Right side: Social + Theme Toggle + Hamburger */}
           <div className="flex items-center gap-2">
-            {/* Desktop Social Icons */}
             <div className="hidden lg:flex items-center gap-5 mr-3">
               {socialLinks.map((social) => (
                 <a
@@ -190,7 +185,6 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
               ))}
             </div>
 
-            {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
               aria-label={isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
@@ -199,7 +193,6 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
               {isLight ? <IconMoon /> : <IconSun />}
             </button>
 
-            {/* Mobile Hamburger */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] group"
@@ -226,13 +219,11 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
         </nav>
       </header>
 
-      {/* Mobile Menu Overlay — always dark (image-based background) */}
       <div
         className={`fixed inset-0 z-40 bg-[#0d1225] flex flex-col transition-all duration-500 lg:hidden ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        {/* Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <picture>
             <source media="(max-width: 767px)" srcSet="/images/dinamo-mobile.jpeg" />
@@ -269,7 +260,6 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
             ))}
           </ul>
 
-          {/* Mobile Social */}
           <div className="flex items-center gap-6 mt-12">
             {socialLinks.map((social) => (
               <a
@@ -286,7 +276,6 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
           </div>
         </div>
 
-        {/* Bottom accent line */}
         <div className="h-1 bg-brand-lime" />
       </div>
     </>

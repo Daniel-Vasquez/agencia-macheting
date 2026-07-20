@@ -1,6 +1,3 @@
-// Fluid Image Reveal — Originkit
-// Using component defaults.
-
 "use client";
 
 import {
@@ -40,38 +37,33 @@ void main(){
 
 const fragmentShader = `
 varying vec2 vUv;
-uniform float uProgress;      // Animation progress [0..1]
-uniform vec2 uSize;           // Container size in pixels
-uniform vec2 uImageSize;      // Image dimensions for aspect ratio
-uniform sampler2D uTexture;   // The image texture
+uniform float uProgress;
+uniform vec2 uSize;
+uniform vec2 uImageSize;
+uniform sampler2D uTexture;
 uniform int uBlobCount;
-uniform float uFitCover;      // 1 = cover (fill+crop), 0 = contain (fit+letterbox)
+uniform float uFitCover;
 #define PI 3.1415926538
 #define TWO_PI 6.28318530718
 
-// Creates wavy noise based on angle - adds organic feel to blob edges
 float noise(vec2 point) {
     float frequency = 1.0;
     float angle = atan(point.y, point.x) + uProgress * PI;
 
-    // Combine multiple wave frequencies for complex pattern
     float w0 = (cos(angle * frequency) + 1.0) / 2.0;
     float w1 = (sin(2.0 * angle * frequency) + 1.0) / 2.0;
     float w2 = (cos(3.0 * angle * frequency) + 1.0) / 2.0;
     return (w0 + w1 + w2) / 3.0;
 }
 
-// Smooth maximum function for organic blending
 float softMax(float a, float b, float k) {
     return log(exp(k * a) + exp(k * b)) / k;
 }
 
-// Smooth minimum function - blends shapes together smoothly
 float softMin(float a, float b, float k) {
     return -softMax(-a, -b, k);
 }
 
-// Signed distance field for a circle with noise
 float circleSDF(vec2 pos, float rad) {
     float a = sin(uProgress * 0.2) * 0.25;
     float amt = 0.5 + a;
@@ -80,7 +72,6 @@ float circleSDF(vec2 pos, float rad) {
     return circle;
 }
 
-// Creates circles arranged radially around the center
 float radialCircles(vec2 p, float offset, float count) {
     float angle = (2.0 * PI) / count;
     float s = round(atan(p.y, p.x) / angle);
@@ -93,7 +84,6 @@ float radialCircles(vec2 p, float offset, float count) {
 void main() {
     vec4 bg = vec4(0.0, 0.0, 0.0, 0.0);
 
-    // UV for cover (fill + crop) or contain (fit + letterbox), vs plane aspect.
     vec2 coverUV = vUv;
     if (uSize.x > 0.0 && uSize.y > 0.0 && uImageSize.x > 0.0 && uImageSize.y > 0.0) {
         float containerAspect = uSize.x / uSize.y;
@@ -101,11 +91,9 @@ void main() {
 
         vec2 scale = vec2(1.0);
         if (uFitCover > 0.5) {
-            // Cover: shrink UV on the long axis so the image fills, cropping.
             if (containerAspect > imageAspect) scale.y = imageAspect / containerAspect;
             else scale.x = containerAspect / imageAspect;
         } else {
-            // Contain: expand UV so the whole image fits; rest is letterbox.
             if (containerAspect > imageAspect) scale.x = containerAspect / imageAspect;
             else scale.y = imageAspect / containerAspect;
         }
@@ -114,7 +102,6 @@ void main() {
     }
 
     vec4 texture = texture2D(uTexture, coverUV);
-    // Contain: anything sampled outside [0,1] is letterbox → transparent.
     if (uFitCover < 0.5 &&
         (coverUV.x < 0.0 || coverUV.x > 1.0 || coverUV.y < 0.0 || coverUV.y > 1.0)) {
         texture = vec4(0.0);
@@ -122,19 +109,14 @@ void main() {
     vec2 coords = vUv * uSize;
     vec2 center = vec2(0.5) * uSize;
 
-    // Apply easing to progress for natural animation curve
     float t = pow(uProgress, 2.5);
-    // Use diagonal to ensure full coverage - need at least half diagonal to cover rectangle
-    // Add extra margin to account for noise distortion
     float maxDim = sqrt(uSize.x * uSize.x + uSize.y * uSize.y);
     float rad = t * maxDim * 1.0;
 
-    // Create main center circle (always present)
     float c1 = circleSDF(coords - center, rad);
     float k = 50.0 / max(uSize.x, uSize.y);
     float circle = c1;
 
-    // Add extra blobs only if blobCount > 1
     int extraBlobs = uBlobCount - 1;
     for (int i = 0; i < 20; i++) {
         if (i >= extraBlobs) break;
@@ -142,16 +124,13 @@ void main() {
         float idx = float(i);
         float total = float(extraBlobs);
 
-        // Distribute evenly around the center with pseudo-random offset
         float baseAngle = idx * TWO_PI / max(total, 1.0);
         float jitter = fract(sin(idx * 127.1 + 311.7) * 43758.5453) * 0.5 - 0.25;
         float angle = baseAngle + jitter;
 
-        // Position at varying distances from center
         float distRatio = 0.25 + 0.2 * fract(sin(idx * 43.3) * 12345.6);
         vec2 offset = vec2(cos(angle), sin(angle)) * distRatio * min(uSize.x, uSize.y);
 
-        // Each extra blob is a simple circle
         float blobDist = length(coords - center - offset);
         float blobNoise = noise(coords - center - offset) * rad * 0.4;
         float blob = blobDist + blobNoise;
@@ -159,22 +138,18 @@ void main() {
         circle = softMin(circle, blob, k);
     }
 
-    // Create sharp edge at the blob boundary
     circle = step(circle, rad);
 
-    // Mix background (transparent) with texture based on blob mask
     gl_FragColor = mix(bg, texture, circle);
 }
 `;
 
-// Distance a perspective camera must sit from a `height`-px plane to fit it
 function cameraDistance(height: number, fov: number): number {
     const h = Math.max(height, 1);
     const r = (fov * Math.PI) / 360;
     return h / 2 / Math.tan(r) || 1;
 }
 
-// Fit the camera to a width×height (px) plane centered at origin
 function fitCamera(camera: PerspectiveCamera, width: number, height: number) {
     const w = Math.max(width, 1);
     const h = Math.max(height, 1);
@@ -184,7 +159,6 @@ function fitCamera(camera: PerspectiveCamera, width: number, height: number) {
     camera.updateProjectionMatrix();
 }
 
-// Resolve an image prop (object or string) to a URL
 function resolveImageSrc(image: unknown): string | undefined {
     if (!image) return undefined;
     if (typeof image === "string") return image.trim() || undefined;

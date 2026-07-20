@@ -33,7 +33,6 @@ const { tiles } = Astro.props;
           href={tile.href}
           class="js-track-tile group relative overflow-hidden min-h-[50vh] md:min-h-[70vh] flex items-end"
         >
-          <!-- Background image -->
           <div class="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
             <img
               src={tile.image}
@@ -43,10 +42,8 @@ const { tiles } = Astro.props;
             />
           </div>
 
-          <!-- Dark overlay -->
           <div class="js-track-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:from-black/70" />
 
-          <!-- Content -->
           <div class="relative z-10 p-8 md:p-12 w-full">
             <div class="flex items-end justify-between mb-3">
               <h3 class="js-track-text text-3xl md:text-3xl lg:text-4xl font-normal uppercase leading-none tracking-tighter text-white">
@@ -69,7 +66,6 @@ const { tiles } = Astro.props;
             </p>
           </div>
 
-          <!-- Divider line on hover -->
           <div
             class="absolute top-0 bottom-0 left-0 w-1 bg-brand-lime scale-y-0 origin-bottom transition-transform duration-500 group-hover:scale-y-100"
           />
@@ -97,33 +93,24 @@ const { tiles } = Astro.props;
         scrollTrigger: {
           trigger: tile,
           start: 'top 85%',
-          // "play reverse play reverse" asegura que:
-          // 1. Inicie al scrollear hacia abajo y entrar en pantalla (play)
-          // 2. Se revierta si sale de la pantalla por arriba (reverse)
-          // 3. Se vuelva a iniciar si el usuario regresa haciendo scroll hacia arriba (play)
-          // 4. Se revierta si el usuario regresa hacia arriba y sale de pantalla (reverse)
           toggleActions: 'play reverse play reverse',
         }
       });
 
-      // Animación de aparición del contenedor principal (Tile)
       tl.fromTo(tile,
         { y: 80, opacity: 0 },
         { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
       )
-      // Animación de escala de la imagen
       .fromTo(image,
         { scale: 1.3 },
         { scale: 1, duration: 1.4, ease: 'power3.out' },
-        '<0.1' // Comienza casi al mismo tiempo que la animación anterior
+        '<0.1'
       )
-      // Animación de la capa oscura
       .fromTo(overlay,
         { opacity: 0 },
         { opacity: 1, duration: 1, ease: 'power2.out' },
         '<0.2'
       )
-      // Animación de aparición de textos e ícono
       .fromTo(texts,
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' },
@@ -132,9 +119,7 @@ const { tiles } = Astro.props;
     });
   };
 
-  // Ejecutar al montar el componente
   initAnimations();
-  
-  // Re-ejecutar si se usa el router de Astro (View Transitions)
+
   document.addEventListener('astro:page-load', initAnimations);
 </script>
