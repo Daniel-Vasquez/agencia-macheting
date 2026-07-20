@@ -158,14 +158,14 @@ export default function HeroCanvas() {
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-brand-lime z-10" />
 
         {/* Hero content */}
-        <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
+        <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 px-6 max-w-[1400px] mx-auto">
           <div className="mb-4">
             <span className="inline-block bg-brand-lime text-black text-xs font-black uppercase tracking-widest px-3 py-1">
               Macheting
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-tight tracking-tighter text-white mb-4 md:mb-6 max-w-5xl">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-tight tracking-tighter text-white mb-4 md:mb-6 max-w-5xl">
             Tu negocio tomó años. Tu equipo de confianza ya está aquí.
           </h1>
 

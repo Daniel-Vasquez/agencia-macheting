@@ -16,17 +16,26 @@ const { partners } = Astro.props;
   <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
     <!-- Header -->
     <div class="mb-14 md:mb-20 max-w-2xl">
-      <p class="text-xs font-bold uppercase tracking-[0.3em] text-brand-gold mb-3">Casos de éxito</p>
-      <h3 class="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-[#0d1225] leading-tight mb-6">
+      <p
+        class="text-xs font-bold uppercase tracking-[0.3em] text-brand-gold mb-3"
+      >
+        Casos de éxito
+      </p>
+      <h3
+        class="text-3xl md:text-4xl lg:text-5xl font-medium uppercase tracking-tighter text-[#0d1225] leading-tight mb-6"
+      >
         Algunas marcas que ya confiaron en nosotros.
       </h3>
       <p class="text-[#0d1225]/60 text-base md:text-lg leading-relaxed">
-        No medimos nuestro trabajo por la cantidad de clientes que tenemos. Lo medimos por las relaciones que seguimos construyendo con ellos.
+        No medimos nuestro trabajo por la cantidad de clientes que tenemos. Lo
+        medimos por las relaciones que seguimos construyendo con ellos.
       </p>
     </div>
 
     <!-- Partners grid -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-black/10">
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-black/10"
+    >
       {
         partners.map((partner) => (
           <div class="group bg-white p-8 md:p-10 flex items-center justify-center aspect-[3/2] hover:bg-gray-50 transition-colors duration-300">

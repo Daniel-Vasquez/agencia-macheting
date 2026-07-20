@@ -308,7 +308,7 @@ export default function MilestonesScroll() {
       <div id="proceso" className="bg-brand-dark pt-20 md:pt-28 pb-12 md:pb-16 px-6 md:px-12 lg:px-20">
         <div className="max-w-[1400px] mx-auto">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-lime mb-3">Proceso</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-white leading-none max-w-3xl mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase tracking-tighter text-white leading-none max-w-3xl mb-6">
             Nuestro proceso
           </h2>
           <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-2xl">
@@ -392,8 +392,7 @@ export default function MilestonesScroll() {
                     ref={(el) => { titleRefs.current[i] = el; }}
                   >
                     <h2
-                      className="font-black uppercase leading-[0.88] text-white whitespace-pre-line"
-                      style={{ fontSize: 'clamp(48px, 4vw, 100px)' }}
+                      className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase leading-[0.88] text-white whitespace-pre-line"
                     >
                       {panel.title}
                     </h2>
