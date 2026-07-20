@@ -23,6 +23,17 @@ interface PanelData {
 
 const PANELS: PanelData[] = [
   {
+    tag: 'NUESTRO PROCESO',
+    year: '',
+    title: 'NUESTRO PROCESO',
+    subtitle: '',
+    description:
+      'No creemos en las fórmulas mágicas. Creemos en conocer a las personas antes de tomar decisiones.',
+    image: '/images/dinamo-6.jpeg',
+    mobileImage: '/images/dinamo-6-mobile.jpeg',
+    stats: [],
+  },
+  {
     tag: '01 — ESCUCHAMOS',
     year: '',
     title: 'ESCUCHAMOS',
@@ -305,18 +316,6 @@ export default function MilestonesScroll() {
 
   return (
     <>
-      <div id="proceso" className="bg-brand-dark pt-20 md:pt-28 pb-12 md:pb-16 px-6 md:px-12 lg:px-20">
-        <div className="max-w-[1400px] mx-auto">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-lime mb-3">Proceso</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase tracking-tighter text-white leading-none max-w-3xl mb-6">
-            Nuestro proceso
-          </h2>
-          <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-2xl">
-            No creemos en las fórmulas mágicas. Creemos en conocer a las personas antes de tomar decisiones.
-          </p>
-        </div>
-      </div>
-
     <section ref={sectionRef} className="relative bg-brand-dark overflow-hidden">
 
       {/* Horizontal track */}
