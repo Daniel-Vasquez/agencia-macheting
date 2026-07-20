@@ -1,31 +1,66 @@
-<section id="equipo" class="bg-[#0d1225] py-20 md:py-28">
+---
+const galleryTiles = [
+  { src: "/images/dinamo-mobile.jpeg", orientation: "vertical" },
+  { src: "/images/dinamo-2.jpeg", orientation: "horizontal" },
+  { src: "/images/dinamo-2-mobile.jpeg", orientation: "vertical" },
+  { src: "/images/dinamo-4.jpeg", orientation: "horizontal" },
+  { src: "/images/dinamo-4-mobile.jpeg", orientation: "vertical" },
+  { src: "/images/dinamo-5.jpeg", orientation: "horizontal" },
+  { src: "/images/dinamo-5-mobile.jpeg", orientation: "vertical" },
+  { src: "/images/dinamo-6.jpeg", orientation: "horizontal" },
+];
+---
+
+<section id="equipo" class="bg-[#f5f7fa] mt-32 py-20 md:py-28">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
-    <div class="max-w-3xl">
+    <div class="max-w-3xl mb-14 md:mb-20">
       <p
         class="text-xs font-bold uppercase tracking-[0.3em] text-brand-lime mb-3"
       >
         Quiénes somos
       </p>
       <h3
-        class="text-3xl md:text-4xl lg:text-5xl font-medium uppercase tracking-tighter text-white leading-tight mb-8"
+        class="text-3xl md:text-4xl lg:text-5xl font-medium uppercase tracking-tighter text-[#0d1225] leading-tight mb-8"
       >
         Detrás de cada proyecto hay personas.
       </h3>
       <div class="flex flex-col gap-5">
-        <p class="text-white/55 text-base md:text-lg leading-relaxed">
+        <p class="text-[#0d1225]/65 text-base md:text-lg leading-relaxed">
           Macheting nació de la idea de que el marketing también puede hacerse
           con empatía.
         </p>
-        <p class="text-white/55 text-base md:text-lg leading-relaxed">
+        <p class="text-[#0d1225]/65 text-base md:text-lg leading-relaxed">
           Hoy somos un equipo de personas que disfruta crear, aprender y
           trabajar junto a negocios que creen en lo que hacen.
         </p>
-        <p class="text-white/55 text-base md:text-lg leading-relaxed">
+        <p class="text-[#0d1225]/65 text-base md:text-lg leading-relaxed">
           Queremos seguir creciendo sin perder eso que nos hizo empezar: el
           gusto por hacer bien nuestro trabajo y tratar a cada cliente como nos
           gustaría que nos trataran a nosotros.
         </p>
       </div>
+    </div>
+
+    <div
+      class="grid grid-cols-2 md:grid-cols-4 grid-flow-row-dense gap-3 md:gap-4 auto-rows-[140px] sm:auto-rows-[170px] md:auto-rows-[190px] lg:auto-rows-[220px]"
+    >
+      {
+        galleryTiles.map((tile, i) => (
+          <div
+            class={`group relative overflow-hidden rounded-xl ${
+              tile.orientation === "vertical" ? "row-span-2" : "col-span-2"
+            }`}
+          >
+            <img
+              src={tile.src}
+              alt={`Equipo Macheting — foto ${i + 1}`}
+              class="w-full h-full object-cover grayscale-[10%] transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-[#0d1225]/10 transition-opacity duration-500 group-hover:opacity-0" />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

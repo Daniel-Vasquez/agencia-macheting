@@ -307,7 +307,7 @@ export default function MilestonesScroll() {
 
   return (
     <>
-    <section ref={sectionRef} className="relative bg-brand-dark overflow-hidden">
+    <section id="proceso" ref={sectionRef} className="relative bg-brand-dark overflow-hidden">
 
       <div ref={trackRef} className="flex flex-col md:flex-row">
         {PANELS.map((panel, i) => (
