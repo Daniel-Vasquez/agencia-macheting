@@ -1,20 +1,17 @@
+---
+import BlobReveal from "./BlobReveal";
+---
+
 <section
-  class="relative overflow-hidden min-h-[60vh] md:min-h-[85vh] flex items-end"
+  class="relative overflow-hidden min-h-[60vh] md:min-h-[90vh] flex items-end"
 >
   <!-- Background image -->
-  <div class="absolute inset-0">
-    <picture>
-      <source
-        media="(max-width: 767px)"
-        srcset="/images/dinamo-6-mobile.jpeg"
-      />
-      <img
-        src="/images/dinamo-6.jpeg"
-        alt="Equipo de Macheting trabajando"
-        class="w-full h-full object-cover object-center"
-        loading="lazy"
-      />
-    </picture>
+  <div class="absolute inset-0 w-full h-full">
+    <BlobReveal
+      image="/images/dinamo-6.jpeg"
+      startAlign="top"
+      client:only="react"
+    />
   </div>
 
   <!-- Gradient overlay -->
