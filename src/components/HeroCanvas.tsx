@@ -8,7 +8,7 @@ const TOTAL_FRAMES = 192;
 const SCROLL_MULTIPLIER = 5;
 
 function getFrameUrl(index: number): string {
-  return `/hero-video/fotograma_${String(index + 1).padStart(4, '0')}.jpg`;
+  return `/hero-video/fotograma_${String(index + 1).padStart(4, '0')}.webp`;
 }
 
 export default function HeroCanvas() {
