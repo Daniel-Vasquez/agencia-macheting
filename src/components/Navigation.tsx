@@ -113,27 +113,27 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
 
   const headerBg = scrolled || isOpen
     ? showDarkNav
-      ? 'bg-[#0d1225]/95 backdrop-blur-md'
-      : 'bg-white/[0.97] backdrop-blur-md shadow-[0_1px_0_rgba(13,18,37,0.08)]'
+      ? 'bg-[#14162e]/95 backdrop-blur-md'
+      : 'bg-white/[0.97] backdrop-blur-md shadow-[0_1px_0_rgba(20,22,46,0.08)]'
     : 'bg-transparent';
 
   const logoClass = showDarkNav
-    ? 'text-white hover:text-brand-lime'
-    : 'text-[#0d1225] hover:text-brand-lime';
+    ? 'text-white hover:text-brand-accent'
+    : 'text-[#14162e] hover:text-brand-accent';
 
   const linkClass = showDarkNav
-    ? 'text-white/80 hover:text-brand-lime'
-    : 'text-[#0d1225]/80 hover:text-brand-lime';
+    ? 'text-white/80 hover:text-brand-accent'
+    : 'text-[#14162e]/80 hover:text-brand-accent';
 
   const socialClass = showDarkNav
-    ? 'text-white/70 hover:text-brand-lime'
-    : 'text-[#0d1225]/70 hover:text-brand-lime';
+    ? 'text-white/70 hover:text-brand-accent'
+    : 'text-[#14162e]/70 hover:text-brand-accent';
 
   const toggleClass = showDarkNav
     ? 'text-white/60 hover:text-white'
-    : 'text-[#0d1225]/60 hover:text-[#0d1225]';
+    : 'text-[#14162e]/60 hover:text-[#14162e]';
 
-  const hamburgerLine = showDarkNav ? 'bg-white' : 'bg-[#0d1225]';
+  const hamburgerLine = showDarkNav ? 'bg-white' : 'bg-[#14162e]';
 
   return (
     <>
@@ -219,7 +219,7 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
       </header>
 
       <div
-        className={`fixed inset-0 z-40 bg-[#0d1225] flex flex-col transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-[#14162e] flex flex-col transition-all duration-500 lg:hidden ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -248,7 +248,7 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
                   onClick={() => setIsOpen(false)}
-                  className={`block text-4xl sm:text-5xl font-black uppercase tracking-tight text-white hover:text-brand-lime transition-all duration-300 py-2 ${
+                  className={`block text-4xl sm:text-5xl font-black uppercase tracking-tight text-white hover:text-brand-accent transition-all duration-300 py-2 ${
                     isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
                   }`}
                   style={{ transitionDelay: isOpen ? `${i * 60 + 100}ms` : '0ms' }}
@@ -267,7 +267,7 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}
-                className="text-white/60 hover:text-brand-lime transition-colors duration-200"
+                className="text-white/60 hover:text-brand-accent transition-colors duration-200"
               >
                 {socialIconMap[social.name] ?? social.name}
               </a>
@@ -275,7 +275,7 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
           </div>
         </div>
 
-        <div className="h-1 bg-brand-lime" />
+        <div className="h-1 bg-brand-accent" />
       </div>
     </>
   );

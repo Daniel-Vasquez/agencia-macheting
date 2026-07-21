@@ -116,7 +116,7 @@ export default function MilestonesScroll() {
               dotRefs.current.forEach((dot, i) => {
                 if (!dot) return;
                 dot.style.backgroundColor =
-                  i === active ? '#f0503d' : 'rgba(255,255,255,0.2)';
+                  i === active ? '#e9530d' : 'rgba(255,255,255,0.2)';
                 dot.style.width = i === active ? '28px' : '14px';
               });
             },
@@ -362,7 +362,7 @@ export default function MilestonesScroll() {
               <div>
                 <span
                   ref={(el) => { tagRefs.current[i] = el; }}
-                  className="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-brand-lime"
+                  className="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-brand-accent"
                 >
                   {panel.tag}
                 </span>
@@ -382,7 +382,7 @@ export default function MilestonesScroll() {
 
                   <div
                     ref={(el) => { lineRefs.current[i] = el; }}
-                    className="h-[2px] bg-brand-gold mt-6 origin-left"
+                    className="h-[2px] bg-brand-primary mt-6 origin-left"
                     style={{ width: '64px' }}
                   />
 
@@ -419,7 +419,7 @@ export default function MilestonesScroll() {
                       </span>
                       {stat.suffix && (
                         <span
-                          className="font-black text-brand-lime"
+                          className="font-black text-brand-accent"
                           style={{ fontSize: 'clamp(14px, 1.5vw, 22px)' }}
                         >
                           {stat.suffix}
@@ -446,7 +446,7 @@ export default function MilestonesScroll() {
             className="h-[2px] rounded-full transition-all duration-300"
             style={{
               width: i === 0 ? '28px' : '14px',
-              backgroundColor: i === 0 ? '#f0503d' : 'rgba(255,255,255,0.2)',
+              backgroundColor: i === 0 ? '#e9530d' : 'rgba(255,255,255,0.2)',
             }}
           />
         ))}

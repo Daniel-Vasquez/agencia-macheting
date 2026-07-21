@@ -42,11 +42,11 @@ const packages: Package[] = [
 ];
 ---
 
-<section id="paquetes" class="bg-[#0d1225] py-20 md:py-28">
+<section id="paquetes" class="bg-[#14162e] py-20 md:py-28">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
 
     <div class="mb-10 md:mb-14">
-      <p class="text-xs font-bold uppercase tracking-[0.3em] text-brand-lime mb-3">Paquetes</p>
+      <p class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent mb-3">Paquetes</p>
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-medium uppercase tracking-tighter text-white leading-tight max-w-4xl mb-6">
         Nuestros paquetes
       </h2>
@@ -64,18 +64,18 @@ const packages: Package[] = [
           class={`relative flex flex-col p-8 md:p-10 transition-colors duration-300 ${
             pkg.featured
               ? 'bg-white/[0.06] hover:bg-white/[0.08]'
-              : 'bg-[#0d1225] hover:bg-white/[0.03]'
+              : 'bg-[#14162e] hover:bg-white/[0.03]'
           }`}
         >
           {pkg.featured && (
-            <div class="absolute top-0 left-0 right-0 h-0.5 bg-brand-lime" />
+            <div class="absolute top-0 left-0 right-0 h-0.5 bg-brand-accent" />
           )}
 
           <div class="mb-6">
             <div class="flex items-center gap-3 mb-2">
-              <span class="text-brand-lime/35 text-xs font-black uppercase tracking-widest">{pkg.number}</span>
+              <span class="text-brand-accent/35 text-xs font-black uppercase tracking-widest">{pkg.number}</span>
               {pkg.featured && (
-                <span class="bg-brand-lime text-black text-[10px] font-black uppercase tracking-widest px-2 py-0.5">
+                <span class="bg-brand-accent text-black text-[10px] font-black uppercase tracking-widest px-2 py-0.5">
                   Recomendado
                 </span>
               )}
@@ -89,7 +89,7 @@ const packages: Package[] = [
           <ul class="flex flex-col gap-3 mb-8 flex-1">
             {pkg.features.map((feature) => (
               <li class="flex items-start gap-3 text-sm text-white/60 leading-snug">
-                <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <svg class="w-3.5 h-3.5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 {feature}
@@ -115,8 +115,8 @@ const packages: Package[] = [
               href="#contacto"
               class={`group inline-flex items-center gap-2 font-black uppercase text-xs tracking-widest px-5 py-3 transition-colors duration-200 flex-shrink-0 ${
                 pkg.featured
-                  ? 'bg-brand-lime text-black hover:bg-white'
-                  : 'border border-white/20 text-white hover:border-brand-lime hover:text-brand-lime'
+                  ? 'bg-brand-accent text-black hover:bg-white'
+                  : 'border border-white/20 text-white hover:border-brand-accent hover:text-brand-accent'
               }`}
             >
               Agendar asesoría
@@ -135,7 +135,7 @@ const packages: Package[] = [
       </p>
       <a
         href="#contacto"
-        class="group inline-flex items-center gap-3 border border-white/20 text-white hover:border-brand-lime hover:text-brand-lime font-black uppercase text-xs tracking-widest px-6 py-4 transition-colors duration-200 flex-shrink-0"
+        class="group inline-flex items-center gap-3 border border-white/20 text-white hover:border-brand-accent hover:text-brand-accent font-black uppercase text-xs tracking-widest px-6 py-4 transition-colors duration-200 flex-shrink-0"
       >
         ¿No sabes cuál elegir? Hablemos.
         <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">

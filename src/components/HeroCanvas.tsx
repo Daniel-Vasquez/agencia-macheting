@@ -146,11 +146,11 @@ export default function HeroCanvas() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20 pointer-events-none" />
 
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-brand-lime z-10" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-brand-accent z-10" />
 
         <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 px-6 max-w-[1400px] mx-auto">
           <div className="mb-4">
-            <span className="inline-block bg-brand-lime text-black text-xs font-black uppercase tracking-widest px-3 py-1">
+            <span className="inline-block bg-brand-accent text-black text-xs font-black uppercase tracking-widest px-3 py-1">
               Macheting
             </span>
           </div>
@@ -170,7 +170,7 @@ export default function HeroCanvas() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-4">
             <a
               href="#proceso"
-              className="group inline-flex items-center gap-3 bg-brand-lime text-black font-black uppercase text-sm tracking-widest px-6 py-4 hover:bg-white transition-colors duration-200"
+              className="group inline-flex items-center gap-3 bg-brand-accent text-black font-black uppercase text-sm tracking-widest px-6 py-4 hover:bg-white transition-colors duration-200"
             >
               Conoce cómo trabajamos
               <svg
@@ -186,7 +186,7 @@ export default function HeroCanvas() {
 
             <a
               href="#servicios"
-              className="group inline-flex items-center gap-3 border border-white/20 text-white hover:border-brand-lime hover:text-brand-lime font-black uppercase text-sm tracking-widest px-6 py-4 transition-colors duration-200"
+              className="group inline-flex items-center gap-3 border border-white/20 text-white hover:border-brand-accent hover:text-brand-accent font-black uppercase text-sm tracking-widest px-6 py-4 transition-colors duration-200"
             >
               Ver nuestros servicios
               <svg
@@ -211,18 +211,18 @@ export default function HeroCanvas() {
 
         {loadingVisible && (
           <div
-            className={`absolute inset-0 z-50 bg-[#0d1225] flex flex-col items-center justify-center gap-6 transition-opacity duration-500 ${
+            className={`absolute inset-0 z-50 bg-[#14162e] flex flex-col items-center justify-center gap-6 transition-opacity duration-500 ${
               isLoaded ? 'opacity-0' : 'opacity-100'
             }`}
           >
             <div className="flex flex-col items-center gap-2">
-              <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-lime">macheting</span>
+              <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-accent">macheting</span>
               <span className="text-lg font-black uppercase tracking-widest text-white">Agencia de Marketing</span>
             </div>
 
             <div className="relative w-48 h-px bg-white/10 overflow-hidden">
               <div
-                className="absolute inset-y-0 left-0 bg-brand-lime transition-all duration-100 ease-linear"
+                className="absolute inset-y-0 left-0 bg-brand-accent transition-all duration-100 ease-linear"
                 style={{ width: `${loadProgress}%` }}
               />
             </div>

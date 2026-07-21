@@ -5,11 +5,9 @@ export default {
     extend: {
       colors: {
         brand: {
-          lime: '#f0503d',
-          gold: '#51b58f',
-          dark: '#0d1225',
-          gray: '#888888',
-          'gray-light': '#cccccc',
+          primary: '#424790',
+          accent: '#e9530d',
+          dark: '#14162e',
         },
       },
       fontFamily: {
