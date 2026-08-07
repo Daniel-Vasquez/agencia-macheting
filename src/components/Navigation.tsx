@@ -168,9 +168,25 @@ export default function Navigation({ links, socialLinks }: NavigationProps) {
               xmlns="http://www.w3.org/2000/svg"
               className="h-auto w-48"
             >
+              <defs>
+                <clipPath id="logo-text-clip">
+                  <motion.rect
+                    y="0"
+                    height="248"
+                    initial={{ x: 220, width: 737 }}
+                    animate={
+                      hideLogoText
+                        ? { x: 957, width: 0 }
+                        : { x: 220, width: 737 }
+                    }
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                  />
+                </clipPath>
+              </defs>
               <motion.g
-                animate={{ opacity: hideLogoText ? 0 : 1, x: hideLogoText ? -10 : 0 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
+                clipPath="url(#logo-text-clip)"
+                animate={{ x: hideLogoText ? -25 : 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
               <motion.path
                 d="M442.251 239.89L453.201 214.56L461.581 214.53L472.731 239.77L463.921 239.8L455.671 218.59H458.991L450.911 239.85L442.241 239.88L442.251 239.89ZM448.801 235.45L450.941 229.3L462.571 229.25L464.761 235.38L448.791 235.44L448.801 235.45Z"
